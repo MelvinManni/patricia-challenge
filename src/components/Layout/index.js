@@ -7,6 +7,7 @@ import Sidebar from "../Navbar/Sidebar";
 import { GridCol, GridContainer } from "../../jss/FlexGrid";
 import RecentActivities from "../RecentActivities";
 import Spacing from "../../jss/Spacing";
+import CardDetails from "../CardDetails";
 
 const LayoutWrapper = styled.div`
   min-height: 100vh;
@@ -49,6 +50,10 @@ export default function PageLayout() {
         <LayoutGridcontainer>
           <AppBar col={12} md={7}>
             <Toggle slidIn={slidIn} setSlidIn={setSlidIn} setShowMenu={setShowMenu} showMenu={showMenu} />
+
+            <Spacing mx={32} my={46}>
+              <CardDetails />
+            </Spacing>
           </AppBar>
           <AppBar background="#f9fafc" col={12} md={5}>
             <ProfileHeader />
