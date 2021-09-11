@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../Button";
 import { Flex } from "../RecentActivities";
-import { ImageIcon } from "../SVG";
+import { CaretDOwnIcon, ImageIcon } from "../SVG";
 import Text from "../Typography";
 
 const Wrapper = styled.div`
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    >div:first-child {
+    > div:first-child {
       margin-bottom: 24px;
     }
   }
@@ -39,8 +39,8 @@ export default function Header() {
         </IconWrapper>
 
         <div>
-          <Text color="greyBlack" fontSize={20} fontWeight={600}>
-            Virtual Card
+          <Text color="greyBlack" mr={8} fontSize={20} fontWeight={600}>
+            Virtual Card <CaretDOwnIcon />
           </Text>
           <Text>Lorem Ipsum dolor sit amet</Text>
         </div>

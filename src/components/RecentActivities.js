@@ -19,7 +19,7 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-bottom: 8px;
-  ${({ theme }) => theme.breakpoint.queryDown("md")} {
+  @media all and (max-width: 1140px) {
     flex-direction: column;
   }
 `;

@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { IconWrap } from "../Navbar/AppBar/Toggle";
 import CardHolder from "./CardHolder";
+import { GrNext } from "react-icons/gr";
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,6 +11,7 @@ const Wrapper = styled.div`
 
 const ActiveDisplay = styled.div`
   margin-right: 29px;
+  position: relative;
 `;
 
 const BluredSection = styled.div`
@@ -38,6 +41,21 @@ const BlurredCardWrapper = styled.div`
   }
 `;
 
+const NextCardBtn = styled(IconWrap)`
+  background: ${({ theme }) => theme.colors.grey};
+  box-shadow: 0px 0px 3px 0px rgba(129, 127, 143, 0.75);
+  position: absolute;
+  right: -50px;
+  top: 44%;
+  z-index: 10000000;
+  ${({ theme }) => theme.breakpoint.queryUp("md")} {
+    display: none;
+  }
+  ${({ theme }) => theme.breakpoint.queryDown("md")} {
+    display: flex;
+  }
+`;
+
 export default function Display({ activeIndex, data, activeIndexhandler }) {
   const renderBlured = (count) => {
     const length = data?.length;
@@ -59,6 +77,9 @@ export default function Display({ activeIndex, data, activeIndexhandler }) {
   return (
     <Wrapper>
       <ActiveDisplay>
+        <NextCardBtn onClick={activeIndexhandler} >
+          <GrNext />
+        </NextCardBtn>
         <CardHolder
           active
           name={data[activeIndex]?.name}

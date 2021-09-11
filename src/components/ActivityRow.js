@@ -1,14 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { Flex } from "./RecentActivities";
 import Text from "./Typography";
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   padding: 16px 0;
 `;
-
 
 const Image = styled.img`
   width: 46px;
@@ -17,19 +15,24 @@ const Image = styled.img`
   margin-right: 16px;
 `;
 
+const SpaceFlex = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 1;
+`;
+
 export default function ActivityRow({ icon, title, time, price }) {
   return (
     <Wrapper>
-      <Flex>
-        <Image src={icon} alt={title} />
+      <Image src={icon} alt={title} />
+      <SpaceFlex>
         <div>
           <Text color="greyDark">{title}</Text>
-          <Text fontSize={12}>
-            {time}
-          </Text>
+          <Text fontSize={12}>{time}</Text>
         </div>
-      </Flex>
-      <Text>${price}</Text>
+        <Text>${price}</Text>
+      </SpaceFlex>
     </Wrapper>
   );
 }
