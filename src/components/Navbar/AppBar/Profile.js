@@ -5,7 +5,7 @@ import Spacing from "../../../jss/Spacing";
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 120px;
   /* border-bottom: 1px solid #eff2f7; */
 `;
 
@@ -14,7 +14,6 @@ const WrapperInner = styled.div`
   align-items: flex-end;
   justify-content: flex-end;
   padding: 35px 30px;
-  background: #f9fafc;
   height: 100%;
 `;
 

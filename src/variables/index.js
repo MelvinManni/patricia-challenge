@@ -7,3 +7,55 @@ export const navLinks = [
   { name: "Products", path: "/", icon: ProductsIcon },
   { name: "Referrals", path: "/", icon: GiftIcon },
 ];
+
+export const recentActivities = [
+  {
+    icon: "/images/activities/amazon.png",
+    title: "Amazon",
+    time: "Just now",
+    price: "377.23",
+  },
+  {
+    icon: "/images/activities/nike.png",
+    title: "Nike",
+    time: "Today",
+    price: "237,737.55",
+  },
+  {
+    icon: "/images/activities/starbucks.png",
+    title: "Starbucks",
+    time: "Yesterday",
+    price: "873,873,834.3",
+  },
+  {
+    icon: "/images/activities/netflix.png",
+    title: "Netflix",
+    time: "June 17",
+    price: "599",
+  },
+  {
+    icon: "/images/activities/apple-card.png",
+    title: "Apple",
+    time: "June 15",
+    price: "872",
+  },
+  {
+    icon: "/images/activities/starbucks.png",
+    title: "Starbucks",
+    time: "June 13",
+    price: "244.55",
+  },
+  {
+    icon: "/images/activities/nike.png",
+    title: "Nike",
+    time: "June 11",
+    price: "452",
+  },
+  {
+    icon: "/images/activities/apple.png",
+    title: "Apple",
+    time: "June 09",
+    price: "990",
+  },
+  
+];

@@ -4,7 +4,7 @@ import Text from "../Typography";
 
 const NavItemWrapper = styled.a`
   width: 100%;
-  padding: 15px 15px 15px 50px;
+  padding: ${({ minimized }) => (minimized ? "15px 15px 15px 15px" : "15px 15px 15px 50px")};
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -26,10 +26,10 @@ const NavItemWrapper = styled.a`
   }
 `;
 
-export default function NavItem({ icon: Icon, text, path }) {
+export default function NavItem({ icon: Icon, text, path, minimized }) {
   return (
-    <NavItemWrapper href={path}>
-      <Icon /> <Text ml={20}>{text}</Text>
+    <NavItemWrapper minimized={minimized} href={path}>
+      <Icon /> {!minimized && <Text ml={20}>{text}</Text>}
     </NavItemWrapper>
   );
 }

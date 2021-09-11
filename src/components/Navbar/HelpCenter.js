@@ -19,7 +19,7 @@ const Wrapper = styled.a`
   }
 `;
 
- const IconWrapper = styled.div`
+const IconWrapper = styled.div`
   width: 21px;
   height: 21px;
   border-radius: 50%;
@@ -32,11 +32,11 @@ const Wrapper = styled.a`
   padding: 5px;
   font-size: 13px;
 `;
-export default function HelpCenter() {
+export default function HelpCenter({ minimized }) {
   return (
-    <Wrapper href="https://www.mypatricia.co/resources/help-centre" target="_blank" >
+    <Wrapper href="https://www.mypatricia.co/resources/help-centre" target="_blank">
       <IconWrapper>?</IconWrapper>
-      <Text>Help Center</Text>
+      {!minimized && <Text>Help Center</Text>}
     </Wrapper>
   );
 }

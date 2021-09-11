@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   outline: none;
+  transition: 0.34s ease all;
 }
 
 /* Font styles */
@@ -22,7 +23,6 @@
   font-style: italic;
 }
 
-
 @font-face {
   font-family: "Gilroy";
   src: url("./fonts/Gilroy-ExtraBold.ttf");
@@ -38,7 +38,6 @@
   font-weight: 800;
   font-style: italic;
 }
-
 
 @font-face {
   font-family: "Gilroy";
