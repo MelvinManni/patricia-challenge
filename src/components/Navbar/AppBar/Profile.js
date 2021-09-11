@@ -17,11 +17,11 @@ const WrapperInner = styled.div`
   height: 100%;
 `;
 
-const IconBtn = styled.button`
+export const IconBtn = styled.button`
   border: 0;
-  padding: ${({ bell }) => (bell ? "8px" : "0")};
-  border-radius: ${({ bell }) => (bell ? "4px" : "0")};
-  background: ${({ bell }) => (bell ? "white" : "transparent")};
+  padding: ${({ bg }) => (bg ? "8px" : "0")};
+  border-radius: ${({ bg }) => (bg ? "4px" : "0")};
+  background: ${({ bg, theme }) => (bg ? theme.colors[bg] : "transparent")};
   position: relative;
   width: max-content;
   height: max-content;
@@ -68,12 +68,12 @@ export default function ProfileHeader() {
   return (
     <Wrapper>
       <WrapperInner>
-        <IconBtn bell>
+        <IconBtn bg="white">
           <FaBell />
           <ActiveNotification />
         </IconBtn>
 
-        <Spacing ml={20} >
+        <Spacing ml={20}>
           <ProfileImageWrapper>
             <ProfileImage src="/images/profile.png" alt="profile picture" />
           </ProfileImageWrapper>

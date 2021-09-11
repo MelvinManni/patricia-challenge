@@ -6,6 +6,10 @@
   transition: 0.34s ease all;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /* Font styles */
 @font-face {
   font-family: "Gilroy";
@@ -132,5 +136,14 @@
 
   to {
     transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

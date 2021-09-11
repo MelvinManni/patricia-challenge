@@ -57,5 +57,47 @@ export const recentActivities = [
     time: "June 09",
     price: "990",
   },
-  
+];
+
+export const cardDetails = [
+  {
+    name: "Nnamani Melvin",
+    number: "7545754575457545",
+    expiry: "10/12",
+    cvv: "342",
+    balance: "34,000",
+    variant: "naira",
+  },
+  {
+    name: "Nnamani Melvin",
+    number: "7545754575457545",
+    expiry: "10/12",
+    cvv: "342",
+    balance: "34,000",
+    variant: "dollars",
+  },
+  {
+    name: "Nnamani Melvin",
+    number: "7545754575457545",
+    expiry: "10/12",
+    cvv: "342",
+    balance: "34,000",
+    variant: "naira",
+  },
+  {
+    name: "Nnamani Melvin",
+    number: "7545754575457545",
+    expiry: "10/12",
+    cvv: "342",
+    balance: "34,000",
+    variant: "dollars",
+  },
+  {
+    name: "Nnamani Melvin",
+    number: "7545754575457545",
+    expiry: "10/12",
+    cvv: "342",
+    balance: "34,000",
+    variant: "naira",
+  },
 ];

@@ -5,8 +5,10 @@ export const theme = {
     secondaryLight: "#FFEEA7",
     pastel: "#DEF5F2",
     white: "#ffffff",
+    black: "#1D1E2C",
     grey: "#9DA8B6",
     greyDark: "#575A65",
+    greyBlack: "#444854",
     alert: "#EA2222",
   },
   breakpoint: {
