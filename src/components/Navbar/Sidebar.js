@@ -11,7 +11,7 @@ import LogoInitial from "../LogoInitial";
 const SidebarWrapper = styled.div`
   width: ${({ slidIn }) => (slidIn ? "80px" : "216px")};
   min-height: max-content;
-  ${({ theme }) => theme.breakpoint.queryDown("md")} {
+  ${({ theme }) => theme.breakpoint.queryDown("lg")} {
     width: 0;
   }
 `;
@@ -26,7 +26,7 @@ const SideBarStyle = styled.div`
   top: 0;
   bottom: 0;
   transition: 0.4s ease all;
-  ${({ theme }) => theme.breakpoint.queryDown("md")} {
+  ${({ theme }) => theme.breakpoint.queryDown("lg")} {
     width: 216px;
     left: ${({ showMobileMenu }) => (showMobileMenu ? "0px" : "-300px")};
     background-color: ${({ theme }) => theme.colors.white};
@@ -46,7 +46,7 @@ const LinksWrapper = styled.div`
   min-height: max-content;
   width: 100%;
   padding-right: 25px;
-  ${({ theme }) => theme.breakpoint.queryDown("md")} {
+  ${({ theme }) => theme.breakpoint.queryDown("lg")} {
     margin: 80px 0 50px 0;
   }
 `;
@@ -58,10 +58,10 @@ const CloseMenu = styled(IconWrap)`
   position: absolute;
   right: -5px;
   top: 10px;
-  ${({ theme }) => theme.breakpoint.queryUp("md")} {
+  ${({ theme }) => theme.breakpoint.queryUp("lg")} {
     display: none;
   }
-  ${({ theme }) => theme.breakpoint.queryDown("md")} {
+  ${({ theme }) => theme.breakpoint.queryDown("lg")} {
     display: flex;
   }
 `;

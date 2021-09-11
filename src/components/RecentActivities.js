@@ -109,7 +109,7 @@ export default function RecentActivities() {
         </Flex>
       </Header>
       {recentActivities.map((item, index) => (
-        <ActivityRow icon={item.icon} price={item.price} time={item.time} title={item.title} key={index.toString} />
+        <ActivityRow icon={item.icon} price={item.price} time={item.time} title={item.title} key={index.toString()} />
       ))}
     </Wrapper>
   );

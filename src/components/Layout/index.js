@@ -9,6 +9,7 @@ import RecentActivities from "../RecentActivities";
 import Spacing from "../../jss/Spacing";
 import CardDetails from "../CardDetails";
 import CardDisplaySection from "../CardSection";
+import { cardDetails } from "../../variables";
 
 const LayoutWrapper = styled.div`
   min-height: 100vh;
@@ -23,7 +24,7 @@ const AppBar = styled(GridCol)`
   padding-left: 0;
   padding-right: 0;
   background: ${({ background }) => background};
-  ${({ theme }) => theme.breakpoint.queryUp("md")} {
+  ${({ theme }) => theme.breakpoint.queryUp("lg")} {
     min-height: 100vh;
   }
 `;
@@ -35,6 +36,7 @@ const LayoutGridcontainer = styled(GridContainer)`
 export default function PageLayout() {
   const [showMenu, setShowMenu] = React.useState(false);
   const [slidIn, setSlidIn] = React.useState(false);
+  const [activeIndex, setActiveIndex] = React.useState(0);
 
   useLayoutEffect(() => {
     window.addEventListener("resize", () => {
@@ -44,19 +46,37 @@ export default function PageLayout() {
     });
   }, []);
 
+  const activeIndexHandler = () => {
+    if (activeIndex + 1 === cardDetails.length) {
+      setActiveIndex(0);
+    } else {
+      setActiveIndex((prev) => prev + 1);
+    }
+  };
+
   return (
     <LayoutWrapper>
       <Sidebar slidIn={slidIn} showMenu={showMenu} setShowMenu={setShowMenu} />
       <ContentSection>
         <LayoutGridcontainer>
-          <AppBar col={12} md={7}>
+          <AppBar col={12} lg={7}>
             <Toggle slidIn={slidIn} setSlidIn={setSlidIn} setShowMenu={setShowMenu} showMenu={showMenu} />
             <Spacing mx={32} my={46}>
-              <CardDisplaySection />
-              <CardDetails />
+              <CardDisplaySection
+                data={cardDetails}
+                activeIndex={activeIndex}
+                activeIndexhandler={activeIndexHandler}
+              />
+              <CardDetails
+                address={cardDetails[activeIndex]?.address}
+                name={cardDetails[activeIndex]?.name}
+                balance={cardDetails[activeIndex]?.balance}
+                date={cardDetails[activeIndex]?.created}
+                status={cardDetails[activeIndex]?.status}
+              />
             </Spacing>
           </AppBar>
-          <AppBar background="#f9fafc" col={12} md={5}>
+          <AppBar background="#f9fafc" col={12} lg={5}>
             <ProfileHeader />
             <Spacing my={24} ml={24} mr={32}>
               <RecentActivities />

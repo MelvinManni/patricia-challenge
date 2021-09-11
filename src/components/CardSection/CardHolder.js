@@ -11,6 +11,8 @@ const CardWrapper = styled.div`
   max-width: 312px;
   position: relative;
   overflow: hidden;
+  animation: ${({ active }) => active && "0.8s slideInRight 1 forwards"};
+  z-index: 1200;
 `;
 
 const VisibilityIcon = styled.div`
@@ -49,7 +51,7 @@ const BottomWrapper = styled.div`
   left: 20px;
 `;
 
-export default function CardHolder({ variant, number, expiry, name, cvv, balance }) {
+export default function CardHolder({ variant, active, number, expiry, name, cvv, balance }) {
   const [detailsVisible, setDetailsVisible] = React.useState(true);
   const [cvvVisible, setCvvVisible] = React.useState(true);
 
@@ -73,13 +75,11 @@ export default function CardHolder({ variant, number, expiry, name, cvv, balance
     for (let index = 0; index < length; index++) {
       numArray.push(cardNumber.substring(4 * index, 4 * index + 4));
     }
-
-    console.log(numArray);
     return numArray;
   };
 
   return (
-    <CardWrapper>
+    <CardWrapper active={active}>
       {variant === "naira" ? <CardDesignNaira /> : <CardDesignDollar />}
       <VisibilityIcon variant={variant} onClick={() => setDetailsVisible(!detailsVisible)}>
         {detailsVisible ? <AiFillEye /> : <AiFillEyeInvisible />}

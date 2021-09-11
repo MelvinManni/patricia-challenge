@@ -4,7 +4,7 @@ import CardHolder from "./CardHolder";
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 `;
 
 const ActiveDisplay = styled.div`
@@ -15,19 +15,30 @@ const BluredSection = styled.div`
   filter: blur(4px);
   cursor: pointer;
   flex: 1;
+  position: relative !important;
+  display: flex;
+  ${({ theme }) => theme.breakpoint.queryDown("md")} {
+    display: none;
+  }
+  min-height: 100%;
+  overflow: hidden;
 `;
 
 const BlurredCardWrapper = styled.div`
-  position: relative;
+  position: absolute;
+  top: 0;
+  z-index: 100;
   &:nth-child(2) {
-    right: -10px;
+    left: 20px;
+    z-index: 90;
   }
   &:nth-child(3) {
-    right: -20px;
+    left: 40px;
+    z-index: 80;
   }
 `;
 
-export default function Display({ activeIndex, data }) {
+export default function Display({ activeIndex, data, activeIndexhandler }) {
   const renderBlured = (count) => {
     const length = data?.length;
     const nextIndex = Number(activeIndex) + Number(count);
@@ -49,48 +60,49 @@ export default function Display({ activeIndex, data }) {
     <Wrapper>
       <ActiveDisplay>
         <CardHolder
-          name={data[activeIndex].name}
-          balance={data[activeIndex].balance}
-          cvv={data[activeIndex].cvv}
-          number={data[activeIndex].number}
-          expiry={data[activeIndex].expiry}
-          variant={data[activeIndex].variant}
+          active
+          name={data[activeIndex]?.name}
+          balance={data[activeIndex]?.balance}
+          cvv={data[activeIndex]?.cvv}
+          number={data[activeIndex]?.number}
+          expiry={data[activeIndex]?.expiry}
+          variant={data[activeIndex]?.variant}
         />
       </ActiveDisplay>
-      <BluredSection>
+      <BluredSection onClick={activeIndexhandler}>
         {renderBlured(1) && (
           <BlurredCardWrapper>
             <CardHolder
-              name={renderBlured(1).name}
-              balance={renderBlured(1).balance}
-              cvv={renderBlured(1).cvv}
-              number={renderBlured(1).number}
-              expiry={renderBlured(1).expiry}
-              variant={renderBlured(1).variant}
+              name={renderBlured(1)?.name}
+              balance={renderBlured(1)?.balance}
+              cvv={renderBlured(1)?.cvv}
+              number={renderBlured(1)?.number}
+              expiry={renderBlured(1)?.expiry}
+              variant={renderBlured(1)?.variant}
             />
           </BlurredCardWrapper>
         )}
         {renderBlured(2) && (
           <BlurredCardWrapper>
             <CardHolder
-              name={renderBlured(2).name}
-              balance={renderBlured(2).balance}
-              cvv={renderBlured(2).cvv}
-              number={renderBlured(2).number}
-              expiry={renderBlured(2).expiry}
-              variant={renderBlured(2).variant}
+              name={renderBlured(2)?.name}
+              balance={renderBlured(2)?.balance}
+              cvv={renderBlured(2)?.cvv}
+              number={renderBlured(2)?.number}
+              expiry={renderBlured(2)?.expiry}
+              variant={renderBlured(2)?.variant}
             />
           </BlurredCardWrapper>
         )}
         {renderBlured(3) && (
           <BlurredCardWrapper>
             <CardHolder
-              name={renderBlured(3).name}
-              balance={renderBlured(3).balance}
-              cvv={renderBlured(3).cvv}
-              number={renderBlured(3).number}
-              expiry={renderBlured(3).expiry}
-              variant={renderBlured(3).variant}
+              name={renderBlured(3)?.name}
+              balance={renderBlured(3)?.balance}
+              cvv={renderBlured(3)?.cvv}
+              number={renderBlured(3)?.number}
+              expiry={renderBlured(3)?.expiry}
+              variant={renderBlured(3)?.variant}
             />
           </BlurredCardWrapper>
         )}

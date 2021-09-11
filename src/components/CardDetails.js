@@ -5,12 +5,14 @@ import Text from "./Typography";
 import Button from "./Button";
 import { CopyIcon } from "./SVG";
 import { IconBtn } from "./Navbar/AppBar/Profile";
+import { Flex } from "./RecentActivities";
 
 const Wrapper = styled.div`
   background: #f9fafc;
   border-radius: 24px;
   width: 100%;
   padding: 24px;
+  width: 100%;
 `;
 
 const CardGridcontainer = styled(GridContainer)`
@@ -30,6 +32,9 @@ const DetailsRow = styled.div`
   }
   &:last-child {
     margin-bottom: 0;
+  }
+  ${({ theme }) => theme.breakpoint.queryDown("sm")} {
+    flex-direction: column;
   }
 `;
 
@@ -103,9 +108,10 @@ export default function CardDetails({ balance, name, status, address, date }) {
             <div>
               <Text fontSize={16}>Billing Address:</Text>
             </div>
-            <div>
+            <Flex>
               <Text fontSize={16} color="greyDark">
                 {address}{" "}
+              </Text>
                 <IconBtn onClick={() => handleAddressCopy(address)}>
                   {/* Render alert when text is copied */}
                   {textCopied && (
@@ -115,8 +121,7 @@ export default function CardDetails({ balance, name, status, address, date }) {
                   )}
                   <CopyIcon />
                 </IconBtn>
-              </Text>
-            </div>{" "}
+            </Flex>
           </DetailsRow>
           <DetailsRow>
             <div>

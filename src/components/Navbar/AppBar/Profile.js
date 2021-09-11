@@ -6,7 +6,9 @@ import Spacing from "../../../jss/Spacing";
 const Wrapper = styled.div`
   width: 100%;
   height: 120px;
-  /* border-bottom: 1px solid #eff2f7; */
+  ${({ theme }) => theme.breakpoint.queryDown("lg")} {
+    display: none;
+  }
 `;
 
 const WrapperInner = styled.div`

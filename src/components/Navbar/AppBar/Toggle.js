@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { FaArrowLeft, FaArrowRight, FaBars } from "react-icons/fa";
 import Text from "../../Typography";
+import MobileProfileHeader from "./ProfileMobile";
+import { Flex } from "../../RecentActivities";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -13,6 +15,9 @@ const WrapperInner = styled.div`
   display: flex;
   align-items: center;
   padding: 35px 30px;
+  ${({ theme }) => theme.breakpoint.queryDown("lg")} {
+    justify-content: space-between;
+  }
 `;
 
 export const IconWrap = styled.button`
@@ -32,16 +37,16 @@ export const IconWrap = styled.button`
   &:active {
     animation: 0.7s pulse 1 forwards;
   }
-  ${({ theme }) => theme.breakpoint.queryDown("md")} {
+  ${({ theme }) => theme.breakpoint.queryDown("lg")} {
     display: none;
   }
 `;
 
 const MobileMenu = styled(IconWrap)`
-  ${({ theme }) => theme.breakpoint.queryUp("md")} {
+  ${({ theme }) => theme.breakpoint.queryUp("lg")} {
     display: none;
   }
-  ${({ theme }) => theme.breakpoint.queryDown("md")} {
+  ${({ theme }) => theme.breakpoint.queryDown("lg")} {
     display: flex;
   }
 `;
@@ -50,16 +55,20 @@ export default function Toggle({ showMenu, setShowMenu, slidIn, setSlidIn }) {
   return (
     <Wrapper>
       <WrapperInner>
-        <IconWrap onClick={() => setSlidIn(!slidIn)}>
-          {!slidIn ? <FaArrowLeft color="#FFf" /> : <FaArrowRight color="#FFf" />}
-        </IconWrap>
+        <Flex>
+          <IconWrap onClick={() => setSlidIn(!slidIn)}>
+            {!slidIn ? <FaArrowLeft color="#FFf" /> : <FaArrowRight color="#FFf" />}
+          </IconWrap>
 
-        <MobileMenu onClick={() => setShowMenu(!showMenu)}>
-          <FaBars color="#FFf" />
-        </MobileMenu>
-        <Text fontWeight={600} fontSize={32}>
-          Cards
-        </Text>
+          <MobileMenu onClick={() => setShowMenu(!showMenu)}>
+            <FaBars color="#FFf" />
+          </MobileMenu>
+          <Text fontWeight={600} fontSize={32}>
+            Cards
+          </Text>
+        </Flex>
+
+        <MobileProfileHeader />
       </WrapperInner>
     </Wrapper>
   );
