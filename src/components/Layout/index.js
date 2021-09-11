@@ -73,6 +73,7 @@ export default function PageLayout() {
                 balance={cardDetails[activeIndex]?.balance}
                 date={cardDetails[activeIndex]?.created}
                 status={cardDetails[activeIndex]?.status}
+                variant={cardDetails[activeIndex]?.variant}
               />
             </Spacing>
           </AppBar>

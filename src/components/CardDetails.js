@@ -54,7 +54,7 @@ const CopiedTextAlert = styled(Text)`
   animation: 0.3s fadeIn 1 forwards;
 `;
 
-export default function CardDetails({ balance, name, status, address, date }) {
+export default function CardDetails({ balance, name, status, address, date, variant }) {
   const [textCopied, setTextcopied] = React.useState(false);
 
   const handleAddressCopy = (text) => {
@@ -80,7 +80,7 @@ export default function CardDetails({ balance, name, status, address, date }) {
             </div>
             <div>
               <Text fontSize={16} color="primary">
-                ${balance || 0.0}
+              {variant === "naira" ? "₦" : "$"}{balance || 0.0}
               </Text>
             </div>
           </DetailsRow>
