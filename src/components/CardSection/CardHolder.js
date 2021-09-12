@@ -53,7 +53,7 @@ const BottomWrapper = styled.div`
 
 export default function CardHolder({ variant, active, number, expiry, name, cvv, balance }) {
   const [detailsVisible, setDetailsVisible] = React.useState(true);
-  const [cvvVisible, setCvvVisible] = React.useState(true);
+  const [cvvVisible, setCvvVisible] = React.useState(false);
 
   const renderText = (text = "") => {
     if (detailsVisible) {
